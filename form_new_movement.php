@@ -2,7 +2,7 @@
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>        
-    <title>Pick up Scheduling</title>
+    <title>New Movement</title>
     
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
@@ -31,9 +31,30 @@
                                
                 <div class="block">
                     <div class="header">
-                        <h2>Pick Up Scheduling</h2>
+                        <h2>New Movement</h2>
                     </div>
                     <div class="content controls">
+                    	<div class="form-row">
+                            <div class="col-md-3">Status:</div>
+                            <div class="col-md-9">
+                            	<select class="form-control" id="status">
+                            		<option value=""></option>
+                            		<option value="1">Pending pick up</option>
+                            		<option value="2">in-transit</option>
+                            		<option value="3">Delivered</option>
+                            	</select>
+                            </div>
+                        </div>
+                        <div class="form-row" style="display: none" id="div_progress">
+                            <div class="col-md-3">Status:</div>
+                            <div class="col-md-9">
+                            	<div class="progress">
+		                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+		                                <span class="sr-only">60% Complete</span>
+		                            </div>
+		                        </div>
+                            </div>
+                        </div>
                         <div class="form-row">
                             <div class="col-md-3">Type of movement:</div>
                             <div class="col-md-9">
@@ -92,8 +113,7 @@
                         <div class="form-row">
                             <div class="col-md-3">ETA:</div>
                             <div class="col-md-9">
-                                <div class="input-group-addon"><span class="icon-calendar-empty"></span></div>
-                                    <input type="text"<div class="input-group">
+                            	<div class="input-group">
                                     <div class="input-group-addon"><span class="icon-calendar-empty"></span></div>
                                     <input type="text" class="datepicker form-control" value="<?php echo date('m/d/Y')?>"/>
                                 </div>
@@ -122,6 +142,18 @@
                             <div class="col-md-9"><input type="text" class="form-control" value=""/></div>
                         </div>
                         <div class="form-row">
+                            <div class="col-md-3">Attachments:</div>
+                            <div class="col-md-9">
+                                <div class="input-group file">                                    
+                                    <input type="text" class="form-control">
+                                    <input type="file" name="file">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">Browse</button>
+                                    </span>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="form-row" style="padding-top: 50px">
                             <div class="col-md-3"></div>
                             <div class="col-md-9">
                             	<input type="submit" class="btn btn-primary" value="Submit"/>
@@ -137,6 +169,37 @@
     </div>
 
     <script type="text/javascript">
+
+	    jQuery(document).ready(function($) {
+	    	showProgressBar();	
+	    });
+
+		function showProgressBar(){
+			var statusField = $('#status'),
+				progressbar = $('#div_progress')
+
+			statusField.change(function(){
+				var thisValue = $(this).val();
+
+				if (thisValue !== '' && thisValue == 1) {
+					$('.progress-bar').attr('aria-valuenow', 35);
+					$('.progress-bar').css('width', '35%');
+					progressbar.show();
+				} else if(thisValue !== '' && thisValue == 2) {
+					$('.progress-bar').attr('aria-valuenow', 70);
+					$('.progress-bar').css('width', '70%');
+					progressbar.show();
+				} else if(thisValue !== '' && thisValue == 3) {
+					$('.progress-bar').attr('aria-valuenow', 100);
+					$('.progress-bar').css('width', '100%');
+					progressbar.show();
+				} else {
+					progressbar.hide();
+				}
+
+			});
+		}   
+
     </script>
 
 </body>

@@ -82,6 +82,12 @@
                             <div class="col-md-3">SPECIAL INSTRUCTIONS:</div>
                             <div class="col-md-9"><input type="text" class="form-control" value="Some disabled value"/></div>
                         </div>
+                        <div class="form-row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-9">
+                            	<input type="submit" class="btn btn-primary" value="Submit"/>
+                            </div>
+                        </div>
                     </div>
                 </div>    
             </div>

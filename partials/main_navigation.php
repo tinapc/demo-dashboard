@@ -45,6 +45,7 @@
                             </li>
                             <li><a href="map.php"><span class="icon-map-marker"></span> Map</a></li>
                             <li><a href="timeline.php"><span class="icon-time"></span> Timeline</a></li>
+                            <li><a href="calendar.php"><span class="icon-calendar"></span> Calendar</a></li>
                         </ul>
                         <form class="navbar-form navbar-right" role="search">
                             <div class="form-group">

@@ -19,6 +19,7 @@
 <script type='text/javascript' src='js/plugins/select2/select2.min.js'></script>
 <script type='text/javascript' src='js/plugins/tagsinput/jquery.tagsinput.min.js'></script>
 <script type='text/javascript' src='js/plugins/jquery/jquery-ui-timepicker-addon.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=places"></script>
 
 <script type='text/javascript' src='js/plugins.js'></script>    
 <script type='text/javascript' src='js/actions.js'></script>    
